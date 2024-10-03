@@ -36,6 +36,7 @@ location and memory variable name                       *
 #include "chipsetAnswerKeypad.h"                                          //processKeypadChipset() 
 #include "endTestAnswerKeypad.h" 
 #include "dimmingFast.h"                                         //processKeypadEndTest()
+#include "dimmingNeo.h"
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 #include <Keypad.h>
@@ -152,9 +153,6 @@ void setup()
     }
   }
 
-  /*// Initialize FastLED and clear LEDs
-  FastLED.clear();
-  FastLED.show();*/
 }
 
 void loop() 
@@ -166,12 +164,12 @@ void loop()
     lcd.clear();
     lcd.setCursor(7,1);
     lcd.print("Wait...");
-    delay(2000);
+    delay(1500);
     Color_race(leds, CP);
     lcd.clear();
     lcd.setCursor(7,1);
     lcd.print("Wait...");
-    delay(2000);
+    delay(1500);
     AutoDim_all_color(leds, CP, 255);
 
     lcd.clear();
@@ -213,11 +211,16 @@ void loop()
   else if (chipset == 2)
   {
     // Execute the LED driver 2 logic
-    UCS2904B(CP);
+    BlinkAllColorNeo(CP);
     lcd.setCursor(7,1);
     lcd.print("Wait...");
-    delay(2000);
-    UCS2904B_2(CP); 
+    delay(1500);
+    ColorRaceNeo(CP); 
+    delay(500);
+    lcd.setCursor(7,1);
+    lcd.print("Wait...");
+    delay(1500);
+    UCS2904B_2(CP);
 
     lcd.clear();
     lcd.setCursor(0, 1);

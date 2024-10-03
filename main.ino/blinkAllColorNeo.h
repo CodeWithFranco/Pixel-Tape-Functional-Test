@@ -11,7 +11,7 @@ Adafruit_NeoPixel strip = Adafruit_NeoPixel(0, PIN, LED_TYPE + NEO_KHZ800); // I
 // Forward declaration of the setAllPixels function
 void setAllPixels(int CP, uint8_t red, uint8_t green, uint8_t blue, uint8_t white);
 
-void UCS2904B(int CP) 
+void BlinkAllColorNeo(int CP) 
 {
   // Dynamically set the number of LEDs based on the user input (CP)
   strip.updateLength(CP);  // Update the length of the strip with the user input

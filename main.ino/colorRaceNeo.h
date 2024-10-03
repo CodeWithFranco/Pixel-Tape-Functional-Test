@@ -12,7 +12,7 @@ extern LiquidCrystal_I2C lcd; //Use existing LCD object
 // Forward declaration of the setPixelColor function
 void setPixelColor(int ledIndex, uint8_t red, uint8_t green, uint8_t blue, uint8_t white);
 
-void UCS2904B_2(int CP) 
+void ColorRaceNeo(int CP) 
 {
   //int totalLEDs = CP; // Calculate the total number of LEDs
   strip.updateLength(CP);                // Update the length of the strip with total number of LEDs
