@@ -30,11 +30,13 @@ location and memory variable name                       *
 #include "blinkAllColorFast.h"                                                //FASTLED Lib
 #include "colorRaceFast.h"                                                    //FASTLED Lib
 #include "driverquestion.h"
+#include "setupQuestion.h"
 #include "blinkAllColorNeo.h"
 #include "colorRaceNeo.h"
 #include "cpAnswerKeypad.h"                                               //processKeypadCP() 
 #include "chipsetAnswerKeypad.h"                                          //processKeypadChipset() 
 #include "endTestAnswerKeypad.h" 
+#include "setupAnswerKeypad.h"
 #include "dimmingFast.h"                                         //processKeypadEndTest()
 #include "dimmingNeo.h"
 #include <Wire.h>
@@ -53,17 +55,19 @@ CRGB *leds;                          // Allocated array for FASTLEDs - Pointer
 int CP = 0;                           // Initial cut-points (CP) value
 int chipset = 0;                      // Initial LedDriver value
 int endTest = 0;                      // Routine
+int user_confirmation_1 = 0;
+int user_confirmation_2 = 0;
 // Allocate memory --> User char input from keypad
 char* CP_userInput;                
 char* chipset_userInput;   
-char* ET_userInput;             
+char* ET_userInput;
 
 void setup() 
 {
   lcd.init();           // Initialize the LCD
   lcd.backlight();      // Turn on the backlight
 
-  // Start Serial and set-up
+  // Start Serial and set-up --> Welcome Screen
   Serial.begin(9600);
   lcd.clear();
   lcd.setCursor(3, 1);                                  //LCD --> (COLUMN, ROW)
@@ -74,6 +78,10 @@ void setup()
   lcd.print("Rev A");                                   //Change if revised
   delay(6000);
   lcd.clear();
+
+
+  // Call setup_question and pass user_confirmation_1 and user_confirmation_2 by reference
+  setup_question(user_confirmation_1, user_confirmation_2);
 
   /********************************************
    * Ask the user for the number of cut-points *

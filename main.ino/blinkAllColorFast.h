@@ -42,36 +42,6 @@ void Blink_all_color(CRGB* leds, int CP)
     FastLED.show();
     delay(1000);
 
-        // Turn all LEDs to yellow, then pause
-    for (int i = 0; i < CP; i++) {
-        leds[i] = CRGB::Yellow;
-        lcd.clear();
-        lcd.setCursor(7,1);
-        lcd.print("Yellow");
-    }
-    FastLED.show();
-    delay(1000);
-
-        // Turn all LEDs to cyan, then pause
-    for (int i = 0; i < CP; i++) {
-        leds[i] = CRGB::Cyan;
-        lcd.clear();
-        lcd.setCursor(7,1);
-        lcd.print("Cyan");
-    }
-    FastLED.show();
-    delay(1000);
-
-        // Turn all LEDs to magenta, then pause
-    for (int i = 0; i < CP; i++) {
-        leds[i] = CRGB::Magenta;
-        lcd.clear();
-        lcd.setCursor(7,1);
-        lcd.print("Magenta");
-    }
-    FastLED.show();
-    delay(1000);
-
         // Turn all LEDs to white, then pause
     for (int i = 0; i < CP; i++) {
         leds[i] = CRGB::White;

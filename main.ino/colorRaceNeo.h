@@ -26,7 +26,7 @@ void ColorRaceNeo(int CP)
     lcd.setCursor(7,1);
     lcd.print("Red");
     strip.show();                   // Update the strip
-    delay(1000);                     // Wait for 500 milliseconds
+    delay(250);                     // Wait for 500 milliseconds
     setPixelColor(i, 0, 0, 0, 0);
   }
 
@@ -38,7 +38,7 @@ void ColorRaceNeo(int CP)
     lcd.setCursor(7,1);
     lcd.print("Green");
     strip.show();                   // Update the strip
-    delay(1000);                     // Wait for 500 milliseconds
+    delay(250);                     // Wait for 500 milliseconds
     setPixelColor(i, 0, 0, 0, 0);
   }
 
@@ -50,7 +50,7 @@ void ColorRaceNeo(int CP)
     lcd.setCursor(7,1);
     lcd.print("Blue");
     strip.show();                   // Update the strip
-    delay(1000);                     // Wait for 500 milliseconds
+    delay(250);                     // Wait for 500 milliseconds
     setPixelColor(i, 0, 0, 0, 0);
   }
 
@@ -62,7 +62,7 @@ void ColorRaceNeo(int CP)
     lcd.setCursor(7,1);
     lcd.print("White");
     strip.show();                   // Update the strip
-    delay(1000);                     // Wait for 500 milliseconds
+    delay(250);                     // Wait for 500 milliseconds
     setPixelColor(i, 0, 0, 0, 0);
   }
 

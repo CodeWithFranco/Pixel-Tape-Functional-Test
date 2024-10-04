@@ -18,7 +18,7 @@ void AutoDim_all_color(CRGB* leds, int CP, int maxBrightness)
     for (int colorIndex = 0; colorIndex < 4; colorIndex++) {
         
         // Gradually dim the brightness from maxBrightness to 0
-        for (int b = maxBrightness; b >= 0; b -= 10) {  // Adjust step size for smooth dimming
+        for (int b = maxBrightness; b >= 0; b -= 15) {  // Adjust step size for smooth dimming
 
             // Set each LED to the current color and dim it
             for (int i = 0; i < CP; i++) {
