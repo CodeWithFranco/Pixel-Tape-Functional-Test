@@ -6,49 +6,66 @@ extern LiquidCrystal_I2C lcd; //Use existing LCD object
 
 // Declare the setupKeypadInput function here
 extern char* setupKeypadInput();  // Declare as extern to let the linker find its definition
-
+int user_confirmation_1 = 0;
+int user_confirmation_2 = 0;
 
 void question_1();
 void question_2();
 
-void setup_question(int &user_confirmation_1, int &user_confirmation_2)
+void setup_question()
 {
   // Ask question 1
   question_1();
   user_confirmation_1 = atoi(setupKeypadInput());  // Process keypad input
   
-  // Validate the answer
-  if (user_confirmation_1 == 1) {
-    lcd.clear();
-    lcd.setCursor(3, 1);
-    lcd.print("Ok, next step!");
-    delay(1500);
-    lcd.clear();
-  } else {
-    lcd.clear();
-    lcd.setCursor(3, 1);
-    lcd.print("LOL. Try again!");
-    delay(1500);
-    setup_question(user_confirmation_1, user_confirmation_2);  // Retry question
+  bool valid_answer = false;
+  while (!valid_answer)                                 // Loop while answer is incorrect
+  {
+    switch(user_confirmation_1)
+    {
+      case 1: //The only valid answer
+      lcd.clear();
+      lcd.setCursor(3, 1);
+      lcd.print("Ok, next step!");
+      delay(1500);
+      valid_answer = true;
+      break;
+    
+    default: //Any other choice
+      lcd.clear();
+      lcd.setCursor(3, 1);
+      lcd.print("LOL. Try again!");
+      delay(1500);
+      question_1();
+      user_confirmation_1 = atoi(setupKeypadInput());  // Process keypad input
+    }
   }
 
   // Ask question 2
   question_2();
   user_confirmation_2 = atoi(setupKeypadInput());  // Process keypad input
-  
-  // Validate the answer
-  if (user_confirmation_2 == 1) {
-    lcd.clear();
-    lcd.setCursor(3, 1);
-    lcd.print("Ok, next step!");
-    delay(1500);
-    lcd.clear();
-  } else {
-    lcd.clear();
-    lcd.setCursor(3, 1);
-    lcd.print("LOL. Try again!");
-    delay(1500);
-    setup_question(user_confirmation_1, user_confirmation_2);  // Retry question
+
+  valid_answer = false;
+  while (!valid_answer)                                 // Loop while answer is incorrect
+  {
+    switch(user_confirmation_2)
+    {
+      case 1: //The only valid answer
+      lcd.clear();
+      lcd.setCursor(3, 1);
+      lcd.print("Ok, next step!");
+      delay(1500);
+      valid_answer = true;
+      break;
+    
+    default: //Any other choice
+      lcd.clear();
+      lcd.setCursor(3, 1);
+      lcd.print("LOL. Try again!");
+      delay(1500);
+      question_2();
+      user_confirmation_2 = atoi(setupKeypadInput());  // Process keypad input
+    }
   }
 }
 

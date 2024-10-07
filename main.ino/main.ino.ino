@@ -55,8 +55,8 @@ CRGB *leds;                          // Allocated array for FASTLEDs - Pointer
 int CP = 0;                           // Initial cut-points (CP) value
 int chipset = 0;                      // Initial LedDriver value
 int endTest = 0;                      // Routine
-int user_confirmation_1 = 0;
-int user_confirmation_2 = 0;
+//int user_confirmation_1 = 0;
+//int user_confirmation_2 = 0;
 // Allocate memory --> User char input from keypad
 char* CP_userInput;                
 char* chipset_userInput;   
@@ -81,7 +81,7 @@ void setup()
 
 
   // Call setup_question and pass user_confirmation_1 and user_confirmation_2 by reference
-  setup_question(user_confirmation_1, user_confirmation_2);
+  setup_question();
 
   /********************************************
    * Ask the user for the number of cut-points *
