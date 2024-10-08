@@ -14,7 +14,7 @@ extern byte digitCount;  // To track the number of digits entered
 char* setupKeypadInput() 
 {
   digitCount = 0;
-  lcd.setCursor(9, 3);  // Set cursor position on the LCD
+  lcd.setCursor(17, 0);  // Set cursor position on the LCD
 
   while (true) {
     char customKey = customKeypad.getKey();
@@ -24,7 +24,7 @@ char* setupKeypadInput()
         // If a digit is pressed and we haven't reached 2 digits
         if (digitCount < 2) {
           setup_input[digitCount] = customKey;
-          lcd.setCursor(9 + digitCount, 3);
+          lcd.setCursor(18 + digitCount, 0);
           lcd.print(customKey);
           digitCount++;
         }
@@ -37,9 +37,9 @@ char* setupKeypadInput()
         if (digitCount > 0) {
           digitCount--;  // Move back in the input array
           setup_input[digitCount] = '\0';  // Null out the last character
-          lcd.setCursor(9 + digitCount, 3);  // Set cursor at the right position
+          lcd.setCursor(18 + digitCount, 0);  // Set cursor at the right position
           lcd.print(" ");  // Clear the last character on the LCD
-          lcd.setCursor(9 + digitCount, 3);  // Move cursor back to the cleared position
+          lcd.setCursor(18 + digitCount, 0);  // Move cursor back to the cleared position
         }
       }
     }

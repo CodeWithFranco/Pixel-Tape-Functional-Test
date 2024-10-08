@@ -72,21 +72,25 @@ void setup_question()
 void question_1()
 {
   lcd.setCursor(0, 0);
-  lcd.print("Connect tapelight.");
+  lcd.print("Read BOM for Vin");
   lcd.setCursor(0, 1); 
   lcd.print("Verify: 24v or 12v");
   lcd.setCursor(0, 2);
   lcd.print("Press '1' to confirm");
+  lcd.setCursor(0, 3);
+  lcd.print("Press '#' to ENTER");
 }
 
 void question_2()
 {
   lcd.setCursor(0, 0);
-  lcd.print("Plug in VAC for UUT");
+  lcd.print("Connect TapeLight");
   lcd.setCursor(0, 1);
-  lcd.print("Verify UUT Vin(-_-)");
+  lcd.print("Verify: 24v or 12v");
   lcd.setCursor(0, 2);
   lcd.print("Press '1' to confirm");
+  lcd.setCursor(0, 3);
+  lcd.print("Press '#' to ENTER");
 }
 
 

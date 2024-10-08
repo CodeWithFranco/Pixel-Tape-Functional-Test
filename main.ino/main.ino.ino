@@ -86,6 +86,7 @@ void setup()
   /********************************************
    * Ask the user for the number of cut-points *
    *********************************************/
+  lcd.clear();
   lcd.setCursor(0, 0);                                 //LCD --> (COLUMN, ROW)
   lcd.print("Enter the # of CPs");                    //Enter Cut Points
   lcd.setCursor(0, 1);
