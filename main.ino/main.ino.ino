@@ -210,8 +210,10 @@ void loop()
     {
       lcd.clear();
       lcd.setCursor(0, 1);
-      lcd.print("Invalid Input");
+      lcd.print("LOL! Really?");
       lcd.setCursor(0, 2);
+      lcd.print("Wrong input");
+      lcd.setCursor(0, 3);
       lcd.print("BACK TO HOMEPAGE");
       delay(2500);
       asm volatile("jmp 0"); //Soft restart
@@ -261,8 +263,10 @@ void loop()
     {
       lcd.clear();
       lcd.setCursor(0, 1);
-      lcd.print("Invalid Input!");
+      lcd.print("LOL! Really?");
       lcd.setCursor(0, 2);
+      lcd.print("Wrong input");
+      lcd.setCursor(0, 3);
       lcd.print("BACK TO HOMEPAGE");
       delay(2500);
       asm volatile("jmp 0"); //Soft restart
