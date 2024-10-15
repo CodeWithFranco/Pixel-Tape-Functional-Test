@@ -14,7 +14,7 @@ void Color_race(CRGB* leds, int cut_points)
     lcd.setCursor(7,1);
     lcd.print("Red");
     leds[i] = CRGB::Black;   
-    delay(250);  
+    delay(100);  
   } 
   for(int i = 0; i <= cut_points; i++)   
   {   
@@ -24,7 +24,7 @@ void Color_race(CRGB* leds, int cut_points)
       lcd.setCursor(7,1);
       lcd.print("Green");
      leds[i] = CRGB::Black;   
-     delay(250);  
+     delay(100);  
   } 
   for(int i = 0; i <= cut_points; i++)   
   {   
@@ -34,7 +34,7 @@ void Color_race(CRGB* leds, int cut_points)
      lcd.setCursor(7,1);
      lcd.print("Blue");
      leds[i] = CRGB::Black;   
-     delay(250); 
+     delay(100); 
   } 
   for(int i = 0; i <= cut_points; i++)   
   {  
@@ -44,6 +44,6 @@ void Color_race(CRGB* leds, int cut_points)
     lcd.setCursor(7,1);
     lcd.print("White");
     leds[i] = CRGB::Black;   
-    delay(250); 
+    delay(100); 
   } 
 }

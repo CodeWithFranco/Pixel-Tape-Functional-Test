@@ -83,10 +83,11 @@ void question_1()
 
 void question_2()
 {
+  lcd.clear();
   lcd.setCursor(0, 0);
   lcd.print("Connect TapeLight");
   lcd.setCursor(0, 1);
-  lcd.print("Verify: 24v or 12v");
+  lcd.print("Turn Vin switch ON");
   lcd.setCursor(0, 2);
   lcd.print("Press '1' to confirm");
   lcd.setCursor(0, 3);

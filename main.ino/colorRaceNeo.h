@@ -26,11 +26,11 @@ void ColorRaceNeo(int CP)
     lcd.setCursor(7,1);
     lcd.print("Red");
     strip.show();                   // Update the strip
-    delay(250);                     // Wait for 500 milliseconds
+    delay(100);                    
     setPixelColor(i, 0, 0, 0, 0);
   }
 
-  delay(250);  // Wait for .50 second
+  delay(250);  
 
   for (int i = 0; i < CP; i++) {
     setPixelColor(i, 255, 0, 0, 0); // Set LED to green
@@ -38,11 +38,11 @@ void ColorRaceNeo(int CP)
     lcd.setCursor(7,1);
     lcd.print("Green");
     strip.show();                   // Update the strip
-    delay(250);                     // Wait for 500 milliseconds
+    delay(100);                    
     setPixelColor(i, 0, 0, 0, 0);
   }
 
-  delay(250);  // Wait for .50 second
+  delay(250);  
 
   for (int i = 0; i < CP; i++) {
     setPixelColor(i, 0, 0, 255, 0); // Set LED to blue
@@ -50,11 +50,11 @@ void ColorRaceNeo(int CP)
     lcd.setCursor(7,1);
     lcd.print("Blue");
     strip.show();                   // Update the strip
-    delay(250);                     // Wait for 500 milliseconds
+    delay(100);                     
     setPixelColor(i, 0, 0, 0, 0);
   }
 
-  delay(250);  // Wait for .50 second
+  delay(100);  
 
   for (int i = 0; i < CP; i++) {
     setPixelColor(i, 0, 0, 0, 255); // Set LED to white
@@ -62,7 +62,7 @@ void ColorRaceNeo(int CP)
     lcd.setCursor(7,1);
     lcd.print("White");
     strip.show();                   // Update the strip
-    delay(250);                     // Wait for 500 milliseconds
+    delay(100);                    
     setPixelColor(i, 0, 0, 0, 0);
   }
 
@@ -72,7 +72,7 @@ void ColorRaceNeo(int CP)
   for (int i = 0; i < CP; i++) {
     setPixelColor(i, 0, 0, 0, 0);   // Turn off the LED
     strip.show();                   // Update the strip
-    delay(250);                     // Wait for 500 milliseconds
+    delay(250);                   
   }
 
   

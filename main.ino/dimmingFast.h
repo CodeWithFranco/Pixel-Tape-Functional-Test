@@ -39,7 +39,7 @@ void AutoDim_all_color(CRGB* leds, int CP, int maxBrightness)
         }
 
         // Pause briefly before switching to the next color
-        delay(500);
+        delay(250);
     }
 
     // Turn all LEDs off after the cycle
@@ -47,5 +47,5 @@ void AutoDim_all_color(CRGB* leds, int CP, int maxBrightness)
         leds[i] = CRGB::Black;
     }
     FastLED.show();
-    delay(500);
+    delay(250);
 }
