@@ -6,7 +6,7 @@
 #define LED_TYPE       NEO_GRBW     // Set this to NEO_GRBW if your strip is RGBW (with a white channel)
 //#define LEDS_PER_DRIVER 1          // Define how many LEDs each driver controls
 
-//Adafruit_NeoPixel strip = Adafruit_NeoPixel(0, PIN, LED_TYPE + NEO_KHZ800); // Initialize with 0 LEDs initially
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(0, PIN, LED_TYPE + NEO_KHZ800); // Initialize with 0 LEDs initially
 extern LiquidCrystal_I2C lcd; //Use existing LCD object
 
 // Forward declaration of the setPixelColor function
@@ -14,6 +14,7 @@ void setPixelColor(int ledIndex, uint8_t red, uint8_t green, uint8_t blue, uint8
 
 void ColorRaceNeo(int CP) 
 {
+  Adafruit_NeoPixel strip = Adafruit_NeoPixel(0, PIN, LED_TYPE + NEO_KHZ800); // Initialize with 0 LEDs initially
   //int totalLEDs = CP; // Calculate the total number of LEDs
   strip.updateLength(CP);                // Update the length of the strip with total number of LEDs
   strip.begin();                        // Initialize the strip
