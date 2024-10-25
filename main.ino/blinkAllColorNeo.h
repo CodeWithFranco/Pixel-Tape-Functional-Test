@@ -5,7 +5,6 @@
 #define PIN        11           // Pin where your NeoPixel strip is connected
 
 extern LiquidCrystal_I2C lcd; //Use existing LCD object
-//Adafruit_NeoPixel strip = Adafruit_NeoPixel(0, PIN, LED_TYPE + NEO_KHZ800); // Initialize with 0 LEDs initially
 
 // Forward declaration of the setAllPixels function
 void setAllPixels(int CP, uint8_t red, uint8_t green, uint8_t blue, uint8_t white);
@@ -67,27 +66,40 @@ void setAllPixels(int CP, uint8_t red, uint8_t green, uint8_t blue, uint8_t whit
 void ws2814(int CP)
 {
   // Start with NEO_GRBW, but try NEO_RGBW and NEO_BRGW if it doesn't work.
-  Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_LEDS, DATA_PIN, NEO_RGBW + NEO_KHZ800);  // Start with RGBW, switch if necessary
+  Adafruit_NeoPixel strip = Adafruit_NeoPixel(CP, PIN, NEO_RGBW + NEO_KHZ800);  // Start with RGBW, switch if necessary
 
   strip.begin();
   strip.show();  // Initialize all pixels to 'off'
+  
 
   //White
+  lcd.clear();
+  lcd.setCursor(7, 1);
+  lcd.print("White");
   strip.setPixelColor(0, strip.Color(255, 0, 0, 0));  // Red
   strip.show();
   delay(5000);
 
   //Red
+  lcd.clear();
+  lcd.setCursor(7, 1);
+  lcd.print("Red");
   strip.setPixelColor(0, strip.Color(0, 255, 0, 0));  // Green
   strip.show();
   delay(1000);
 
   //Green
+  lcd.clear();
+  lcd.setCursor(7, 1);
+  lcd.print("Green");
   strip.setPixelColor(0, strip.Color(0, 0, 255, 0));  // Blue
   strip.show();
   delay(1000);
 
-  /Bluee
+  //Blue
+  lcd.clear();
+  lcd.setCursor(7, 1);
+  lcd.print("Blue");
   strip.setPixelColor(0, strip.Color(0, 0, 0, 255));  // White (using the W channel)
   strip.show();
   delay(1000);
