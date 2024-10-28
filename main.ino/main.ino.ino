@@ -131,6 +131,7 @@ void setup()
    * Ask the user for the kind of LED driver for the tapelight.       *
    * This section should be revised when new LED driver is introduced.*
    ********************************************************************/
+  digitCount = 0;
   page_1_chipSelect();                                   //Just a introduction page for chip selection 1.5sec delay
   page_2_chipSelect();                                   // Ask for LED driver selection
 
