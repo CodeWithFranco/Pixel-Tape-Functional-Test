@@ -24,8 +24,8 @@ void UCS2904B_dimming(int CP) {
   strip.show();            // Turn all LEDs off to start
 
   // Dimming effect for Red, Green, Blue, and White colors on all LEDs
-  dimAllLEDs(CP, "Red", 0, 255, 0, 0);
-  dimAllLEDs(CP, "Green", 255, 0, 0, 0);
+  dimAllLEDs(CP, "Red", 255, 0, 0, 0);
+  dimAllLEDs(CP, "Green", 0, 255, 0, 0);
   dimAllLEDs(CP, "Blue", 0, 0, 255, 0);
   dimAllLEDs(CP, "White", 0, 0, 0, 255);
 

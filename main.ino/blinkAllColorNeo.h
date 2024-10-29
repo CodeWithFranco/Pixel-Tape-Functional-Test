@@ -18,14 +18,14 @@ void USC2904B_blink(int CP)
   strip.show();            // Turn all LEDs off to start
 
   // Turn all LEDs red
-  setAllPixels(CP, 0, 255, 0, 0);  // Red color
+  setAllPixels(CP, 255, 0, 0, 0);  // Red color
   strip.show();                    // Update the strip to show the red color
   lcd.clear();
   lcd.setCursor(7,1);
   lcd.print("Red");
   delay(1000);                     // Wait for 1000 milliseconds (on time)
 
-  setAllPixels(CP, 255, 0, 0, 0);  // Green color
+  setAllPixels(CP, 0, 255, 0, 0);  // Green color
   strip.show();                    // Update the strip to show the green color
   lcd.clear();
   lcd.setCursor(7,1);

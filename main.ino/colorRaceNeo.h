@@ -21,7 +21,7 @@ void USC2904B_race(int CP)
 
   // Set individual LEDs to different colors, one per driver
   for (int i = 0; i < CP; i++) {
-    setPixelColor(i, 0, 255, 0, 0); // Set LED to red
+    setPixelColor(i, 255, 0, 0, 0); // Set LED to red
     lcd.clear();
     lcd.setCursor(7,1);
     lcd.print("Red");
@@ -33,7 +33,7 @@ void USC2904B_race(int CP)
   delay(250);  
 
   for (int i = 0; i < CP; i++) {
-    setPixelColor(i, 255, 0, 0, 0); // Set LED to green
+    setPixelColor(i, 0, 255, 0, 0); // Set LED to green
     lcd.clear();
     lcd.setCursor(7,1);
     lcd.print("Green");

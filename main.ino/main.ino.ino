@@ -199,7 +199,7 @@ void loop()
         case 2:
           lcd.clear();
           lcd.setCursor(0, 1);
-          lcd.print("Restarting test..");
+          lcd.print("Restart test..");
           delay(1000);
           endprogram = true;
            // No need for `continue`, the loop will naturally repeat
@@ -257,8 +257,9 @@ void loop()
         case 2:
           lcd.clear();
           lcd.setCursor(0, 1);
-          lcd.print("Continue test");
+          lcd.print("Restart test..");
           delay(1000);
+          endprogram = true;
            // No need for `continue`, the loop will naturally repeat
            break;
         
@@ -311,7 +312,7 @@ void loop()
         case 2:
           lcd.clear();
           lcd.setCursor(0, 1);
-          lcd.print("Continue test");
+          lcd.print("Restart test..");
           delay(1000);
           endprogram = true;
           // No need for `continue`, the loop will naturally repeat
