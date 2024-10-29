@@ -65,3 +65,72 @@ void dimAllLEDs(int CP, const char* colorName, uint8_t red, uint8_t green, uint8
   }
 }
 
+void WS2814_dimming(int CP)
+{
+  Adafruit_NeoPixel strip = Adafruit_NeoPixel(CP, PIN, NEO_RGBW + NEO_KHZ800);
+  strip.begin();
+  strip.show();  // Initialize all pixels to 'off'
+
+  int dimmingSteps = 15;  // Number of steps for dimming effect
+
+  // White dimming
+  lcd.clear();
+  lcd.setCursor(7, 1);
+  lcd.print("Dimming White");
+  for (int step = dimmingSteps; step >= 0; step--) {
+    uint8_t brightness = (255 * step) / dimmingSteps;
+    for (int i = 0; i < CP; i++) {
+      strip.setPixelColor(i, strip.Color(brightness, 0, 0, 0));
+    }
+    strip.show();
+    delay(100);  // Adjust delay for smoother/slower dimming
+  }
+
+  // Repeat dimming for Red, Green, and Blue
+  // Red dimming
+  lcd.clear();
+  lcd.setCursor(7, 1);
+  lcd.print("Dimming Red");
+  for (int step = dimmingSteps; step >= 0; step--) {
+    uint8_t brightness = (255 * step) / dimmingSteps;
+    for (int i = 0; i < CP; i++) {
+      strip.setPixelColor(i, strip.Color(0, brightness, 0, 0));
+    }
+    strip.show();
+    delay(100);
+  }
+
+  // Green dimming
+  lcd.clear();
+  lcd.setCursor(7, 1);
+  lcd.print("Dimming Green");
+  for (int step = dimmingSteps; step >= 0; step--) {
+    uint8_t brightness = (255 * step) / dimmingSteps;
+    for (int i = 0; i < CP; i++) {
+      strip.setPixelColor(i, strip.Color(0, 0, brightness, 0));
+    }
+    strip.show();
+    delay(100);
+  }
+
+  // Blue dimming
+  lcd.clear();
+  lcd.setCursor(7, 1);
+  lcd.print("Dimming Blue");
+  for (int step = dimmingSteps; step >= 0; step--) {
+    uint8_t brightness = (255 * step) / dimmingSteps;
+    for (int i = 0; i < CP; i++) {
+      strip.setPixelColor(i, strip.Color(0, 0, 0, brightness));
+    }
+    strip.show();
+    delay(100);
+  }
+
+  // Turn OFF all LEDs after dimming
+  lcd.clear();
+  for (int i = 0; i < CP; i++) {
+    strip.setPixelColor(i, strip.Color(0, 0, 0, 0));
+  }
+  strip.show();
+  delay(500);
+}

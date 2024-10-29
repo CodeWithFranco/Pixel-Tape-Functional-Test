@@ -161,23 +161,20 @@ void setup()
   }
 }
 
-  
-
 void loop() 
 {
   if (chipset == 1)
   {
-  
     Blink_all_color(leds, CP);
     lcd.clear();
     lcd.setCursor(7,1);
     lcd.print("Wait...");
-    delay(500);
+    delay(1000);
     Color_race(leds, CP);
     lcd.clear();
     lcd.setCursor(7,1);
     lcd.print("Wait...");
-    delay(500);
+    delay(1000);
     AutoDim_all_color(leds, CP, 255);
 
     lcd.clear();
@@ -204,6 +201,7 @@ void loop()
           lcd.setCursor(0, 1);
           lcd.print("Restarting test..");
           delay(1000);
+          endprogram = true;
            // No need for `continue`, the loop will naturally repeat
            break;
         
@@ -228,17 +226,20 @@ void loop()
     lcd.clear();
     lcd.setCursor(7,1);
     lcd.print("Wait...");
-    delay(500);
+    delay(1000);
     USC2904B_race(CP); 
     lcd.clear();
     lcd.setCursor(7,1);
     lcd.print("Wait...");
-    delay(500);
+    delay(1000);
     UCS2904B_dimming(CP);
 
     lcd.clear();
     lcd.setCursor(0, 1);
     lcd.print("End test? 1-Yes 2-No");
+
+    ET_userInput = processKeypadEndTest();
+    endTest = atoi(ET_userInput);
 
     bool endprogram = false;
     while(!endprogram){
@@ -248,6 +249,7 @@ void loop()
           lcd.setCursor(0, 1);
           lcd.print("Restarting prog..");
           delay(1000);
+          endprogram = true;
           //Soft reset
           asm volatile("jmp 0");
           break;
@@ -274,19 +276,60 @@ void loop()
       } 
     }
   }
-    else if (chipset == 3){
-      WS2814_blink(CP);
-      lcd.clear();
-      lcd.setCursor(7,1);
-      lcd.print("Wait...");
-      delay(500);
-      WS2814_race(CP);
-      // lcd.clear();
-      // lcd.setCursor(7, 1);
-      // lcd.print("Wait...");
-      // delay(500);
+  else if (chipset == 3){
+    WS2814_blink(CP);
+    lcd.clear();
+    lcd.setCursor(7,1);
+    lcd.print("Wait...");
+    delay(1000);
+    WS2814_race(CP);
+    lcd.clear();
+    lcd.setCursor(7, 1);
+    lcd.print("Wait...");
+    delay(1000);
+    WS2814_dimming(CP);
 
+    lcd.clear();
+    lcd.setCursor(0, 1);
+    lcd.print("End test? 1-Yes 2-No");
 
+    ET_userInput = processKeypadEndTest();
+    endTest = atoi(ET_userInput);
+
+    bool endprogram = false;
+    while(!endprogram){
+      switch(endTest){
+        case 1: 
+          lcd.clear();
+          lcd.setCursor(0, 1);
+          lcd.print("Restarting prog..");
+          delay(1000);
+          //Soft reset
+          asm volatile("jmp 0");
+          break;
+        
+        case 2:
+          lcd.clear();
+          lcd.setCursor(0, 1);
+          lcd.print("Continue test");
+          delay(1000);
+          endprogram = true;
+          // No need for `continue`, the loop will naturally repeat
+          break;
+        
+        default:
+          lcd.clear();
+          lcd.setCursor(0, 1);
+          lcd.print("LOL! Really?");
+          lcd.setCursor(0, 2);
+          lcd.print("Wrong input");
+          lcd.setCursor(0, 3);
+          lcd.print("BACK TO HOMEPAGE");
+          delay(2500);
+          asm volatile("jmp 0"); //Soft restart
+          break;
+        } 
+      }
     }
     
 }

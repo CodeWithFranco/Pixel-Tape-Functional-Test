@@ -130,9 +130,9 @@ void WS2814_race(int CP){
     }
     delay(50);
 
-    for (int i = 0; i < CP; i++){
-      strip.setPixelColor(i, strip.Color(0, 0, 0, 0)); //Turn off each CP
-      strip.show();
-      delay(250);
-    }
+    // for (int i = 0; i < CP; i++){
+    //   strip.setPixelColor(i, strip.Color(0, 0, 0, 0)); //Turn off each CP
+    //   strip.show();
+    //   delay(250);
+    // }
 }
