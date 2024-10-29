@@ -12,12 +12,13 @@ extern LiquidCrystal_I2C lcd; // Use existing LCD object
 
 // Extern declaration for setPixelColor (defined in another file)
 extern void setPixelColor(int ledIndex, uint8_t red, uint8_t green, uint8_t blue, uint8_t white);
+extern Adafruit_NeoPixel strip; //main declaration is in blinkAllColorNeo
 
 // Forward declaration of dimAllLEDs function
 void dimAllLEDs(int CP, const char* colorName, uint8_t red, uint8_t green, uint8_t blue, uint8_t white);
 
 // Function to dim the LEDs gradually for all LEDs
-void UCS2904B_2(int CP) {
+void UCS2904B_dimming(int CP) {
   strip.updateLength(CP);  // Update the length of the strip to CP LEDs
   strip.begin();           // Initialize the strip
   strip.show();            // Turn all LEDs off to start

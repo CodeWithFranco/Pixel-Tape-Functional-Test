@@ -65,6 +65,7 @@ void setAllPixels(int CP, uint8_t red, uint8_t green, uint8_t blue, uint8_t whit
 
 void WS2814_blink(int CP)
 {
+  Adafruit_NeoPixel strip = Adafruit_NeoPixel(CP, PIN, NEO_RGBW + NEO_KHZ800);
   strip.begin();
   strip.show();  // Initialize all pixels to 'off'
   
@@ -72,7 +73,9 @@ void WS2814_blink(int CP)
   lcd.clear();
   lcd.setCursor(7, 1);
   lcd.print("White");
-  strip.setPixelColor(0, strip.Color(255, 0, 0, 0));  
+  for (int i = 0; i < CP; i++) {
+    strip.setPixelColor(i, strip.Color(255, 0, 0, 0));  
+  }
   strip.show();
   delay(1000);
 
@@ -80,7 +83,9 @@ void WS2814_blink(int CP)
   lcd.clear();
   lcd.setCursor(7, 1);
   lcd.print("Red");
-  strip.setPixelColor(0, strip.Color(0, 255, 0, 0));  
+  for (int i = 0; i < CP; i++) {
+    strip.setPixelColor(i, strip.Color(0, 255, 0, 0));  
+  }
   strip.show();
   delay(1000);
 
@@ -88,7 +93,9 @@ void WS2814_blink(int CP)
   lcd.clear();
   lcd.setCursor(7, 1);
   lcd.print("Green");
-  strip.setPixelColor(0, strip.Color(0, 0, 255, 0));  
+  for (int i = 0; i < CP; i++) {
+    strip.setPixelColor(i, strip.Color(0, 0, 255, 0));  
+  } 
   strip.show();
   delay(1000);
 
@@ -96,7 +103,9 @@ void WS2814_blink(int CP)
   lcd.clear();
   lcd.setCursor(7, 1);
   lcd.print("Blue");
-  strip.setPixelColor(0, strip.Color(0, 0, 0, 255));  
+  for (int i = 0; i < CP; i++) {
+    strip.setPixelColor(i, strip.Color(0, 0, 0, 255));  
+  }
   strip.show();
   delay(1000);
 

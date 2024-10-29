@@ -82,6 +82,7 @@ void setPixelColor(int ledIndex, uint8_t red, uint8_t green, uint8_t blue, uint8
 }
 
 void WS2814_race(int CP){
+  Adafruit_NeoPixel strip = Adafruit_NeoPixel(CP, PIN, NEO_RGBW + NEO_KHZ800);
   strip.begin();
   strip.show();
   
@@ -96,7 +97,7 @@ void WS2814_race(int CP){
   }
   delay(250);
 
-  for (int i; i < CP; i++){
+  for (int i = 0; i < CP; i++){
     strip.setPixelColor(i, strip.Color(0, 255, 0, 0)); //Red
     lcd.clear();
     lcd.setCursor(7, 1);
@@ -107,7 +108,7 @@ void WS2814_race(int CP){
   }
   delay(250);
 
-    for (int i; i < CP; i++){
+    for (int i = 0; i < CP; i++){
       strip.setPixelColor(i, strip.Color(0, 0, 255, 0)); //Green
       lcd.clear();
       lcd.setCursor(7, 1);
@@ -118,7 +119,7 @@ void WS2814_race(int CP){
     }
     delay(250);
 
-    for (int i; i < CP; i++){
+    for (int i = 0; i < CP; i++){
       strip.setPixelColor(i, strip.Color(0, 0, 0, 255)); // Blue
       lcd.clear();
       lcd.setCursor(7, 1);
@@ -129,7 +130,7 @@ void WS2814_race(int CP){
     }
     delay(50);
 
-    for (int i; i < CP; i++){
+    for (int i = 0; i < CP; i++){
       strip.setPixelColor(i, strip.Color(0, 0, 0, 0)); //Turn off each CP
       strip.show();
       delay(250);

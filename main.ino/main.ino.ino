@@ -234,7 +234,7 @@ void loop()
     lcd.setCursor(7,1);
     lcd.print("Wait...");
     delay(500);
-    UCS2904B_2(CP);
+    UCS2904B_dimming(CP);
 
     lcd.clear();
     lcd.setCursor(0, 1);
@@ -281,10 +281,10 @@ void loop()
       lcd.print("Wait...");
       delay(500);
       WS2814_race(CP);
-      lcd.clear();
-      lcd.setCursor(7, 1);
-      lcd.print("Wait...");
-      delay(500);
+      // lcd.clear();
+      // lcd.setCursor(7, 1);
+      // lcd.print("Wait...");
+      // delay(500);
 
 
     }
