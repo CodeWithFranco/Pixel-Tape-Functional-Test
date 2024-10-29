@@ -5,13 +5,14 @@
 #define PIN        11           // Pin where your NeoPixel strip is connected
 
 extern LiquidCrystal_I2C lcd; //Use existing LCD object
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(0, PIN, NEO_RGBW + NEO_KHZ800); // Initialize with 0 LEDs initially
 
 // Forward declaration of the setAllPixels function
 void setAllPixels(int CP, uint8_t red, uint8_t green, uint8_t blue, uint8_t white);
 
 void BlinkAllColorNeo(int CP) 
 {
-  Adafruit_NeoPixel strip = Adafruit_NeoPixel(0, PIN, NEO_RGBW + NEO_KHZ800); // Initialize with 0 LEDs initially
+  //Adafruit_NeoPixel strip = Adafruit_NeoPixel(0, PIN, NEO_RGBW + NEO_KHZ800); // Initialize with 0 LEDs initially
   // Dynamically set the number of LEDs based on the user input (CP)
   strip.updateLength(CP);  // Update the length of the strip with the user input
   strip.begin();           // Initialize the strip
@@ -63,10 +64,10 @@ void setAllPixels(int CP, uint8_t red, uint8_t green, uint8_t blue, uint8_t whit
   }
 }
 
-void ws2814(int CP)
+void ws2814_blink(int CP)
 {
   // Start with NEO_GRBW, but try NEO_RGBW and NEO_BRGW if it doesn't work.
-  Adafruit_NeoPixel strip = Adafruit_NeoPixel(CP, PIN, NEO_RGBW + NEO_KHZ800);  // Start with RGBW, switch if necessary
+  //Adafruit_NeoPixel strip = Adafruit_NeoPixel(CP, PIN, NEO_RGBW + NEO_KHZ800);  // Start with RGBW, switch if necessary
 
   strip.begin();
   strip.show();  // Initialize all pixels to 'off'

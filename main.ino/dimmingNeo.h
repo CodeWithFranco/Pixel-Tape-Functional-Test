@@ -63,3 +63,4 @@ void dimAllLEDs(int CP, const char* colorName, uint8_t red, uint8_t green, uint8
     delay(20);     // Small delay for smooth dimming effect
   }
 }
+

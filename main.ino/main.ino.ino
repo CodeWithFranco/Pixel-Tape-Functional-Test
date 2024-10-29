@@ -136,7 +136,7 @@ void setup()
   page_2_chipSelect();                                   // Ask for LED driver selection
 
   chipset_userInput = processKeypadChipset();
-  CP = atoi(chipset_userInput);                         //Change char type to int type
+  chipset = atoi(chipset_userInput);                         //Change char type to int type
 
   bool valid_answer = false;
   while (!valid_answer)                                 // Loop while answer is incorrect
@@ -144,24 +144,16 @@ void setup()
     switch (chipset)
     {
       case 1: // WS2811 or TX1818
-        FastLED.addLeds<WS2811, DATA_PIN, RGB>(leds, CP);
-        FastLED.clear();
-        FastLED.show();
-        valid_answer = true;                                    //Loop exit   
-        break;
-      
       case 2: // UCS2904B
-        //UCS2904 Initialization is in the function itself
-        valid_answer = true;                                    //Loop exit
-        break;
-
       case 3: //WS2814
         valid_answer = true;                                    //Loop exit   
         break;
 
       default: // Invalid Choice
+        lcd.clear();
+        lcd.setCursor(0, 2);
+        lcd.print("Invalid choice");
         page_2_chipSelect();    
-        digitCount = 0;                                // Re-ask the question
         chipset_userInput = processKeypadChipset();
         chipset = atoi(chipset_userInput);                     //Changes from char type to int type
         break;
@@ -282,7 +274,7 @@ void loop()
     }
   }
     else if (chipset == 3){
-      ws2814(CP);
+      ws2814_blink(CP);
     }
     
 }
