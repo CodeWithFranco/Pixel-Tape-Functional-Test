@@ -5,15 +5,14 @@
 #define PIN        11           // Pin where your NeoPixel strip is connected
 
 extern LiquidCrystal_I2C lcd; //Use existing LCD object
+/*Main definition - other will be extern*/
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(0, PIN, NEO_RGBW + NEO_KHZ800); // Initialize with 0 LEDs initially
 
 // Forward declaration of the setAllPixels function
 void setAllPixels(int CP, uint8_t red, uint8_t green, uint8_t blue, uint8_t white);
 
-void BlinkAllColorNeo(int CP) 
+void USC2904B_blink(int CP) 
 {
-  //Adafruit_NeoPixel strip = Adafruit_NeoPixel(0, PIN, NEO_RGBW + NEO_KHZ800); // Initialize with 0 LEDs initially
-  // Dynamically set the number of LEDs based on the user input (CP)
   strip.updateLength(CP);  // Update the length of the strip with the user input
   strip.begin();           // Initialize the strip
   strip.show();            // Turn all LEDs off to start
@@ -58,34 +57,30 @@ void BlinkAllColorNeo(int CP)
 
 // Helper function to set all pixels to a given color
 void setAllPixels(int CP, uint8_t red, uint8_t green, uint8_t blue, uint8_t white) {
-  Adafruit_NeoPixel strip = Adafruit_NeoPixel(0, PIN, NEO_RGBW + NEO_KHZ800); // Initialize with 0 LEDs initially
+  //Adafruit_NeoPixel strip = Adafruit_NeoPixel(0, PIN, NEO_RGBW + NEO_KHZ800); // Initialize with 0 LEDs initially
   for (int i = 0; i < CP; i++) {
     strip.setPixelColor(i, strip.Color(red, green, blue, white));
   }
 }
 
-void ws2814_blink(int CP)
+void WS2814_blink(int CP)
 {
-  // Start with NEO_GRBW, but try NEO_RGBW and NEO_BRGW if it doesn't work.
-  //Adafruit_NeoPixel strip = Adafruit_NeoPixel(CP, PIN, NEO_RGBW + NEO_KHZ800);  // Start with RGBW, switch if necessary
-
   strip.begin();
   strip.show();  // Initialize all pixels to 'off'
   
-
   //White
   lcd.clear();
   lcd.setCursor(7, 1);
   lcd.print("White");
-  strip.setPixelColor(0, strip.Color(255, 0, 0, 0));  // Red
+  strip.setPixelColor(0, strip.Color(255, 0, 0, 0));  
   strip.show();
-  delay(5000);
+  delay(1000);
 
   //Red
   lcd.clear();
   lcd.setCursor(7, 1);
   lcd.print("Red");
-  strip.setPixelColor(0, strip.Color(0, 255, 0, 0));  // Green
+  strip.setPixelColor(0, strip.Color(0, 255, 0, 0));  
   strip.show();
   delay(1000);
 
@@ -93,7 +88,7 @@ void ws2814_blink(int CP)
   lcd.clear();
   lcd.setCursor(7, 1);
   lcd.print("Green");
-  strip.setPixelColor(0, strip.Color(0, 0, 255, 0));  // Blue
+  strip.setPixelColor(0, strip.Color(0, 0, 255, 0));  
   strip.show();
   delay(1000);
 
@@ -101,7 +96,13 @@ void ws2814_blink(int CP)
   lcd.clear();
   lcd.setCursor(7, 1);
   lcd.print("Blue");
-  strip.setPixelColor(0, strip.Color(0, 0, 0, 255));  // White (using the W channel)
+  strip.setPixelColor(0, strip.Color(0, 0, 0, 255));  
   strip.show();
   delay(1000);
+
+  //Turn OFF
+  lcd.clear();
+  strip.setPixelColor(0, strip.Color(0, 0, 0, 0));
+  strip.show();
+  delay(500);
 }

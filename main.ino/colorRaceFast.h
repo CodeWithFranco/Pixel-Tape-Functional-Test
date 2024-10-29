@@ -47,3 +47,5 @@ void Color_race(CRGB* leds, int cut_points)
     delay(100); 
   } 
 }
+
+

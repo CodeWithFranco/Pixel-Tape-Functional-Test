@@ -6,13 +6,13 @@
 #define LED_TYPE       NEO_GRBW     // Set this to NEO_GRBW if your strip is RGBW (with a white channel)
 //#define LEDS_PER_DRIVER 1          // Define how many LEDs each driver controls
 
-extern Adafruit_NeoPixel strip; 
+extern Adafruit_NeoPixel strip;  //Use existing Adafruit object
 extern LiquidCrystal_I2C lcd; //Use existing LCD object
 
 // Forward declaration of the setPixelColor function
 void setPixelColor(int ledIndex, uint8_t red, uint8_t green, uint8_t blue, uint8_t white);
 
-void ColorRaceNeo(int CP) 
+void USC2904B_race(int CP) 
 {
   //int totalLEDs = CP; // Calculate the total number of LEDs
   strip.updateLength(CP);                // Update the length of the strip with total number of LEDs
@@ -54,7 +54,7 @@ void ColorRaceNeo(int CP)
     setPixelColor(i, 0, 0, 0, 0);
   }
 
-  delay(100);  
+  delay(250);  
 
   for (int i = 0; i < CP; i++) {
     setPixelColor(i, 0, 0, 0, 255); // Set LED to white
@@ -74,11 +74,64 @@ void ColorRaceNeo(int CP)
     strip.show();                   // Update the strip
     delay(250);                   
   }
-
-  
 }
 
 // Helper function to set a single pixel to a given color
 void setPixelColor(int ledIndex, uint8_t red, uint8_t green, uint8_t blue, uint8_t white) {
   strip.setPixelColor(ledIndex, strip.Color(red, green, blue, white));
+}
+
+void WS2814_race(int CP){
+  strip.begin();
+  strip.show();
+  
+  for(int i = 0; i < CP; i++){
+    strip.setPixelColor(i, strip.Color(255, 0, 0, 0)); //White
+    lcd.clear();
+    lcd.setCursor(7, 1);
+    lcd.print("White");
+    strip.show();
+    delay(100);
+    strip.setPixelColor(i, strip.Color(0, 0, 0, 0)); //Turn off proceeding CPs
+  }
+  delay(250);
+
+  for (int i; i < CP; i++){
+    strip.setPixelColor(i, strip.Color(0, 255, 0, 0)); //Red
+    lcd.clear();
+    lcd.setCursor(7, 1);
+    lcd.print("Red");
+    strip.show();
+    delay(100);
+    strip.setPixelColor(i, strip.Color(0, 0, 0, 0)); //Turn off proceeding CPs
+  }
+  delay(250);
+
+    for (int i; i < CP; i++){
+      strip.setPixelColor(i, strip.Color(0, 0, 255, 0)); //Green
+      lcd.clear();
+      lcd.setCursor(7, 1);
+      lcd.print("Green");
+      strip.show();
+      delay(100);
+      strip.setPixelColor(i, strip.Color(0, 0, 0, 0)); //Turn off proceeding CPs
+    }
+    delay(250);
+
+    for (int i; i < CP; i++){
+      strip.setPixelColor(i, strip.Color(0, 0, 0, 255)); // Blue
+      lcd.clear();
+      lcd.setCursor(7, 1);
+      lcd.print("Blue");
+      strip.show();
+      delay(100);
+      strip.setPixelColor(i, strip.Color(0, 0, 0, 0)); //Turn off proceeding CPs
+    }
+    delay(50);
+
+    for (int i; i < CP; i++){
+      strip.setPixelColor(i, strip.Color(0, 0, 0, 0)); //Turn off each CP
+      strip.show();
+      delay(250);
+    }
 }

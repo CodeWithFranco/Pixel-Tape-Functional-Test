@@ -172,12 +172,12 @@ void loop()
     lcd.clear();
     lcd.setCursor(7,1);
     lcd.print("Wait...");
-    delay(1500);
+    delay(500);
     Color_race(leds, CP);
     lcd.clear();
     lcd.setCursor(7,1);
     lcd.print("Wait...");
-    delay(1500);
+    delay(500);
     AutoDim_all_color(leds, CP, 255);
 
     lcd.clear();
@@ -202,7 +202,7 @@ void loop()
         case 2:
           lcd.clear();
           lcd.setCursor(0, 1);
-          lcd.print("Continue test");
+          lcd.print("Restarting test..");
           delay(1000);
            // No need for `continue`, the loop will naturally repeat
            break;
@@ -224,15 +224,16 @@ void loop()
   else if (chipset == 2)
   {
      // Execute the LED driver 2 logic
-    BlinkAllColorNeo(CP);
+    USC2904B_blink(CP);
+    lcd.clear();
     lcd.setCursor(7,1);
     lcd.print("Wait...");
-    delay(1500);
-    ColorRaceNeo(CP); 
     delay(500);
+    USC2904B_race(CP); 
+    lcd.clear();
     lcd.setCursor(7,1);
     lcd.print("Wait...");
-    delay(1500);
+    delay(500);
     UCS2904B_2(CP);
 
     lcd.clear();
@@ -274,7 +275,18 @@ void loop()
     }
   }
     else if (chipset == 3){
-      ws2814_blink(CP);
+      WS2814_blink(CP);
+      lcd.clear();
+      lcd.setCursor(7,1);
+      lcd.print("Wait...");
+      delay(500);
+      WS2814_race(CP);
+      lcd.clear();
+      lcd.setCursor(7, 1);
+      lcd.print("Wait...");
+      delay(500);
+
+
     }
     
 }
