@@ -12,7 +12,7 @@ void AutoDim_all_color(CRGB* leds, int CP, int maxBrightness)
 {   
     // Array of selected colors (Red, Green, Blue, White)
     CRGB colors[] = {CRGB::Red, CRGB::Green, CRGB::Blue, CRGB::White};
-    const char* colorNames[] = {"Red", "Green", "Blue", "White"};
+    const char* colorNames[] = {"Dimming Red", "Dimming Green", "Dimming Blue", "Dimming White"};
 
     // Loop through the selected colors
     for (int colorIndex = 0; colorIndex < 4; colorIndex++) {

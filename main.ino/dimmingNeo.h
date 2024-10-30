@@ -24,10 +24,10 @@ void UCS2904B_dimming(int CP) {
   strip.show();            // Turn all LEDs off to start
 
   // Dimming effect for Red, Green, Blue, and White colors on all LEDs
-  dimAllLEDs(CP, "Red", 255, 0, 0, 0);
-  dimAllLEDs(CP, "Green", 0, 255, 0, 0);
-  dimAllLEDs(CP, "Blue", 0, 0, 255, 0);
-  dimAllLEDs(CP, "White", 0, 0, 0, 255);
+  dimAllLEDs(CP, "Dimming Red", 255, 0, 0, 0);
+  dimAllLEDs(CP, "Dimming Green", 0, 255, 0, 0);
+  dimAllLEDs(CP, "Dimming Blue", 0, 0, 255, 0);
+  dimAllLEDs(CP, "Dimming White", 0, 0, 0, 255);
 
   // Turn all LEDs off
   for (int i = 0; i < CP; i++) {
@@ -53,7 +53,7 @@ void dimAllLEDs(int CP, const char* colorName, uint8_t red, uint8_t green, uint8
     delay(20);  // Small delay for smooth dimming effect
   }
 
-  delay(500);  // Wait for 500 milliseconds before switching to the next color
+  delay(250);  // Wait for 500 milliseconds before switching to the next color
 
   // Decrease brightness gradually for all LEDs
   for (int brightness = 255; brightness >= 0; brightness -= 5) {
