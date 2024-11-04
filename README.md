@@ -23,7 +23,7 @@ Items needed for the project:
   
   c. 20x4 IC2 Diplay: https://www.amazon.com/gp/product/B07QLRD3TM/
   
-  d. 4x4 Keypad
+  d. 4x4 Keypad: https://shorturl.at/Z1Bc6
   
   e. 12v AC-DC power supply
   
