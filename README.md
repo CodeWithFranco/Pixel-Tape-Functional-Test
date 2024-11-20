@@ -1,10 +1,12 @@
-This code is for testing/functional test Pixel tape light. Led driver includes (As of 07Oct2024):
+This code is for testing/functional test Pixel tape light. Led driver includes (As of 04Nov2024):
 
   a. WS2811
   
   b. TX1818
   
   c. UCS2904B
+
+  d. WS2814F
 
 
 Routines include:
