@@ -4,6 +4,7 @@
 // Use the global lcd object defined in the main file
 extern LiquidCrystal_I2C lcd; //Use existing LCD object
 
+
 /********************************
 lcd.print(column, row): truffle
 *********************************/

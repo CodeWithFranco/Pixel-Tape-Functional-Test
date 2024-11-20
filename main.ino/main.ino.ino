@@ -165,6 +165,7 @@ void loop()
 {
   if (chipset == 1)
   {
+    FastLED.addLeds<WS2811, DATA_PIN, RGB>(leds, CP);
     Blink_all_color(leds, CP);
     lcd.clear();
     lcd.setCursor(7,1);
